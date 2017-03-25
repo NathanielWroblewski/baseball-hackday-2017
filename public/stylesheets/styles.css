@@ -25,7 +25,7 @@ html, body {
 }
 
 .visualization {
-
+  margin-top: 50px;
 }
 
 text {
@@ -34,10 +34,18 @@ text {
   pointer-events: none;
 }
 
-circle {
-  fill: #ccc;
+circle:hover {
+  opacity: 0.7;
+  stroke-width: 2px;
+  stroke: black;
 }
 
-.node:hover circle {
-  fill: orange;
+.player {
+  display: block;
+  color: #aaa;
+}
+
+.value {
+  font-size: 32px;
+  margin-bottom: 7px;
 }
