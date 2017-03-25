@@ -64,9 +64,22 @@ d3.csv("./public/datasets/players.csv", function(error, data) {
   node.append("circle")
       .attr("id", function(d) { return d.id; })
       .attr("r", function(d) { return d.r; })
+      .attr("data-name", function(d) { return d.data.name; })
+      .attr("data-value", function(d) { return d.data.value; })
       .style("fill", function(d) { return colors[d.data.team] });
 
-  node.append("title")
-      .text(function(d) { return `${d.data.name} - ${d.data.value}`; });
+  $('.average-salary .node').on('mouseenter', function (e) {
+    var data = e.currentTarget.querySelector('circle').dataset;
+
+    $('.caption.average-salary').html(
+      `<p>
+        <span class="value">$${data.value}</span>
+        <span class="player">${data.name}</span>
+      </p>`);
+  });
+
+  $('.average-salary .node').on('mouseout', function () {
+    $('.caption.average-salary').html('');
+  });
 });
 }();
