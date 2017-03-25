@@ -9,15 +9,21 @@
   </head>
   <body>
     <div class="content">
-      <h1 class="title">Baseball Hack Day</h1>
-      <p class="subtitle">Wins over replacement per dollar value</h1>
-      <svg class="visualization" width="800" height="400"></svg>
+      <h1 class="title">WAR per dollar</h1>
+      <ul class="subtitle">
+        <li class="tab" data-tab="war-per-player" data-name="WAR per player">WAR per player</li>
+        <li class="tab" data-tab="war-per-dollar" data-name="WAR per dollar">WAR per dollar</li>
+      </ul>
+      <svg class="war-per-player" width="800" height="400"></svg>
+      <svg class="war-per-dollar" width="800" height="400"></svg>
+      <div class="caption war-per-player"></div>
+      <div class="caption war-per-dollar"></div>
     </div>
   </body>
   <script src="/public/javascripts/lib/d3.min.js"></script>
   <script src="/public/javascripts/namespace.js"></script>
-  <!-- <script src="/public/javascripts/war_per_player.js"></script> -->
-  <!-- <script src="/public/javascripts/war_per_dollar.js"></script> -->
+  <script src="/public/javascripts/tabs.js"></script>
+  <script src="/public/javascripts/war_per_player.js"></script>
+  <script src="/public/javascripts/war_per_dollar.js"></script>
   <script src="/public/javascripts/average-salary.js"></script>
-
 </html>
