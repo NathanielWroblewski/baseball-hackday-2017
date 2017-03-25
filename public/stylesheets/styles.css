@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: #444;
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.content {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 50px;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  margin-top: 0;
+  color: #aaa;
+}
+
+.visualization {
+
+}
+
+text {
+  font: 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+circle {
+  fill: #ccc;
+}
+
+.node:hover circle {
+  fill: orange;
+}

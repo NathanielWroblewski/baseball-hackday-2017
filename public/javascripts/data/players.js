@@ -1,0 +1,31 @@
+namespace('WAR.Datasets');
+
+WAR.Datasets.Players = [
+  { name: "Nick Ahmed", salary: 521600, war: 0.17 },
+  { name: "Jake Barrett", salary: 507500, war: 0.04 },
+  { name: "Silvino Bracho", salary: 509300, war: 0.00 },
+  { name: "Socrates Brito", salary: 508500, war: -0.34 },
+  { name: "Welington Castillo", salary: 3700000, war: 2.36 },
+  { name: "Andrew Chafin", salary: 519700, war: 0.02 },
+  { name: "Tyler Clippard", salary: 6100000, war: 0.00 },
+  { name: "Patrick Corbin", salary: 2525000, war: 0.60 },
+  { name: "Rubby De La Rosa", salary: 2350000, war: -0.08 },
+  { name: "Randall Delgado", salary: 1275000, war: 0.01 },
+  { name: "Brandon Drury", salary: 508900, war: 0.02 },
+  { name: "Paul Goldschmidt", salary: 5833333, war: 4.84 },
+  { name: "Philip Gosselin", salary: 513900, war: 0.32 },
+  { name: "Zack Greinke", salary: 31799030, war: 0.28 },
+  { name: "Chris Herrmann", salary: 515900, war: 1.32 },
+  { name: "Daniel Hudson", salary: 2700000, war: 0.04 },
+  { name: "Jake Lamb", salary: 520300, war: 2.61 },
+  { name: "Shelby Miller", salary: 4350000, war: -0.09 },
+  { name: "Chris Owings", salary: 530500, war: 1.56 },
+  { name: "David Peralta", salary: 529600, war: 0.58 },
+  { name: "A.J. Pollock", salary: 3500000, war: 0.49 },
+  { name: "Robbie Ray", salary: 521000, war: 0.29 },
+  { name: "Jean Segura", salary: 2600000, war: 5.65 },
+  { name: "Yasmany Tomas", salary: 7500000, war: -0.42 },
+  { name: "Rickie Weeks", salary: 1500000, war: -0.13 },
+  { name: "Brad Ziegler", salary: 5500000, war: 0.00 },
+  { name: "Erick Aybar", salary: 8500000, war: 0.23 }
+];
