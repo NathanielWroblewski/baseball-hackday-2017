@@ -10,9 +10,16 @@ CSV.foreach('./datasets/salaries.csv', headers: true, header_converters: :symbol
   end
 end
 
+not_translated = []
+
 CSV.foreach('./datasets/war.csv', headers: true, header_converters: :symbol) do |row|
   if row[:year_id].to_i == 2016
     id = row[:player_id]
+
+    if !players[id]
+      not_translated.push(id)
+    end
+
     players[id] ||= {}
     players[id][:name] = row[:name_common]
     players[id][:war] = row[:war]
@@ -24,5 +31,13 @@ CSV.open('./datasets/master.csv', 'w') do |csv|
 
   players.each do |player, info|
     csv << [info[:name], info[:salary], info[:war]]
+  end
+end
+
+CSV.open('./datasets/not_translated.csv', 'w') do |csv|
+  csv << %w(id)
+
+  not_translated.each do |id|
+    csv << [id]
   end
 end
