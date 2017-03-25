@@ -1,34 +1,39 @@
 var svg = d3.select("svg"),
-    diameter = +svg.attr("width"),
-    g = svg.append("g").attr("transform", "translate(2,2)"),
-    format = d3.format(",d");
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var format = d3.format(",d");
+
+var color = d3.scaleOrdinal(d3.schemeCategory20c);
 
 var pack = d3.pack()
-    .size([diameter - 4, diameter - 4]);
+    .size([width, height])
+    .padding(1.5);
 
-d3.csv("./public/datasets/players.csv", function(error, root) {
+d3.csv("./public/datasets/players.csv", function(error, data) {
   if (error) throw error;
 
-  var table = d3.csvParse("./public/datasets/players.csv");
+  data.forEach(function(d) {
+    d.id = d.name.replace(' ', '-');
+    d.value = parseFloat(d.war);
+  });
 
-  root = d3.stratify()
-      .id(function(d) { return d.name; })
-      .parentid(function(d) { return d.team})
-      (table);
+  data = data.slice(0, 300);
 
-  var node = g.selectAll(".node")
-    .data(pack(root).descendants())
+  var root = d3.hierarchy({children: data})
+      .sum(function(d) { return d.value; });
+
+  var node = svg.selectAll(".node")
+    .data(pack(root).leaves())
     .enter().append("g")
-      .attr("class", function(d) { return d.children ? "node" : "leaf node"; })
+      .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-  node.append("title")
-      .text(function(d) { return d.name + "\n" + format(d.war); });
-
   node.append("circle")
-      .attr("r", function(d) { return d.r; });
+      .attr("id", function(d) { return d.id; })
+      .attr("r", function(d) { return d.r; })
+      .style("fill", function(d) { return d.data.team; });
 
-  node.filter(function(d) { return !d.children; }).append("text")
-      .attr("dy", "0.3em")
-      .text(function(d) { return d.name.substring(0, d.r / 3); });
+  node.append("title")
+      .text(function(d) { return `${d.data.name} - ${d.data.value}`; });
 });
