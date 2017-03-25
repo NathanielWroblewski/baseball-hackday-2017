@@ -1,3 +1,4 @@
+!function () {
 var colors = {
   MIN: 'EC644B',
   CHW: 'D24D57',
@@ -31,7 +32,7 @@ var colors = {
   KCR: 'ECF0F1'
 };
 
-var svg = d3.select("svg"),
+var svg = d3.select(".average-salary"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -68,3 +69,4 @@ d3.csv("./public/datasets/players.csv", function(error, data) {
   node.append("title")
       .text(function(d) { return `${d.data.name} - ${d.data.value}`; });
 });
+}();
