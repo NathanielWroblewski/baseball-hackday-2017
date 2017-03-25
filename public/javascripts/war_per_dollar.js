@@ -1,3 +1,5 @@
+!function() {
+
 const COLORS = {
   MIN: 'EC644B',
   CHW: 'D24D57',
@@ -31,7 +33,7 @@ const COLORS = {
   KCR: 'ECF0F1'
 };
 
-var svg = d3.select("svg"),
+var svg = d3.select(".war-per-dollar"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -70,17 +72,18 @@ d3.csv("./public/datasets/players.csv", function(error, data) {
       .attr("data-value", function(d) { return d.data.value; })
       .style("fill", function(d) { return `#${COLORS[d.data.team]}`; });
 
-  $('.visualization .node').on('mouseenter', function (e) {
+  $('.war-per-dollar .node').on('mouseenter', function (e) {
     var data = e.currentTarget.querySelector('circle').dataset;
 
-    $('.caption').html(
+    $('.caption.war-per-dollar').html(
       `<p>
         <span class="value">${(data.value * 100000).toFixed(4)}e-6</span>
         <span class="player">${data.name}</span>
       </p>`);
   });
 
-  $('.visualization .node').on('mouseout', function () {
-    $('.caption').html('');
+  $('.war-per-dollar .node').on('mouseout', function () {
+    $('.caption.war-per-dollar').html('');
   });
 });
+}();
